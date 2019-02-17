@@ -2,6 +2,6 @@
 name = "CASBoard"
 version = "0.1.0"
 authors = ["Håvard Krogstie <krogstie.havard@gmail.com>"]
-edition = "2019"
+edition = "2018"
 
 [dependencies]
