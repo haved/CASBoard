@@ -4,7 +4,7 @@ CASBoard aims to be stable and sensible, with good error messages and intuitive 
 It puts all input and output on a board, with lines connecting relations.
 Included are some features for visualizing the results, such as basic graphing capabilities.
 
-The program is written in rust.
+The program is written in Kotlin using TornadoFX for GUI.
 
 ### Screenshots
 
