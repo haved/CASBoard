@@ -2,9 +2,9 @@ import java.io.FileInputStream
 import java.io.FileNotFoundException
 import java.io.InputStream
 
-fun getStreamToOpt(url:String) : InputStream? {
+fun getStreamToOpt(path: String) : InputStream? {
     try {
-        return FileInputStream("res/$url")
+        return FileInputStream("res/$path")
     } catch(e: FileNotFoundException) {
         warning("Failed to load resource: ${e.message}")
     }

@@ -1,0 +1,22 @@
+
+#tooltip_pane {
+
+-fx-alignment: center;
+
+-fx-background-color: #bbbbbb;
+-fx-background-radius: 0.7em;
+
+-fx-border-color : #aaaaaa;
+-fx-border-radius: 0.7em;
+-fx-border-width: 4px;
+
+-fx-padding: 0.1em 0.7em 0.1em 0.7em;
+-fx-alignment: center-left;
+
+-fx-opacity: 50%;
+}
+
+#tooltip_title {
+-fx-font-size: 1.2em;
+-fx-font-weight: bold;
+}
