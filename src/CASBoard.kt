@@ -8,7 +8,8 @@ const val CASBOARD_NAME = "CASBoard"
 
 class CASApp : Application() {
     override fun start(primaryStage: Stage) {
-        CASBoardView(primaryStage)
+        val view = CASBoardView(primaryStage)
+        view.spawnCASBlock()
     }
 }
 

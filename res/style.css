@@ -45,3 +45,49 @@ image-view {
 -fx-font-size: 1.2em;
 -fx-font-weight: bold;
 }
+
+/*
+======== BOARD AREA ========
+*/
+
+#board_area {
+-fx-background-color: rgba(235, 230, 230, 1);
+}
+
+#cas_block {
+-fx-background-insets: 0;
+-fx-text-fill: #111111;
+-fx-spacing: 0;
+-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.3) , 10, 0.0 , 0 , 3 );
+-fx-background-radius: 6px;
+}
+
+#cas_block_id {
+-fx-padding: 0.667em 0.75em 0.667em 0.75em; /* 10px */
+
+-fx-alignment: center-left;
+
+-fx-background-color: rgba(150, 150, 150, 0.9);
+-fx-background-radius: 6px 0 0 6px;
+}
+
+#cas_block_contents {
+-fx-padding: 0.667em 0.75em 0.667em 0.75em; /* 10px */
+
+-fx-spacing: 5px;
+
+-fx-background-color: rgba(255, 255, 255, 0.9);
+-fx-background-radius: 0 6px 6px 0;
+}
+
+#cas_block_input {
+-fx-padding: 0;
+-fx-border-width: 0 0 3px 0;
+-fx-border-color: rgba(200, 200, 200, 0.9);
+-fx-background-insets: 0;
+-fx-background-color: rgba(0,0,0,0);
+}
+
+#cas_block_output {
+-fx-font-weight: bold;
+}

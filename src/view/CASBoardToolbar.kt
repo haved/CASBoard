@@ -11,7 +11,6 @@ import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.scene.layout.VBox
 import javafx.stage.Popup
-import java.awt.event.MouseEvent
 
 class CASToolBar(private val imageHeight:Double) : ToolBar() {
     private val instantTooltip = InstantTooltip()
@@ -27,7 +26,7 @@ class CASToolBar(private val imageHeight:Double) : ToolBar() {
         icon?.let {
             val iv =  ImageView(it)
             iv.fitHeight = imageHeight
-            iv.fitWidth = imageHeight
+            iv.isPreserveRatio = true
             button.graphic = iv
         }
         handler?.let { button.onAction = it }

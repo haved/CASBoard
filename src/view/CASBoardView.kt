@@ -1,10 +1,10 @@
 package casboard.view
 
-import javafx.scene.Group
 import javafx.scene.Scene
 import javafx.scene.control.*
 import javafx.stage.Stage
 import javafx.scene.image.Image
+import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 
 class CASMenuBar : MenuBar() {
@@ -26,30 +26,31 @@ class CASMenuBar : MenuBar() {
     }
 }
 
-class Board : Group() {
-
-}
-
 //TODO: We would want this to be part of the css
 const val TOOLBAR_ICON_HEIGHT = 32.0
 
 class CASBoardView(primaryStage: Stage) {
     private val menubar = CASMenuBar()
     private val toolbar = CASToolBar(TOOLBAR_ICON_HEIGHT)
-    private val board = Board()
+    private val board = BoardArea()
     private val scene : Scene
 
     init {
         primaryStage.title = casboard.CASBOARD_NAME
         primaryStage.icons.add(Image("icon.png"))
 
-        scene = Scene(VBox(menubar, toolbar, board), 960.0, 600.0)
+        val vBox = VBox(menubar, toolbar, board)
+        VBox.setVgrow(board, Priority.ALWAYS)
+
+        scene = Scene(vBox, 960.0, 600.0)
         scene.stylesheets.add("style.css")
         primaryStage.scene = scene
         primaryStage.show()
     }
 
     fun setFontSize() {
-        scene
+        TODO("ability to se font size")
     }
+
+    fun spawnCASBlock() = board.spawnCASBlock()
 }
