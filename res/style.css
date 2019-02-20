@@ -3,6 +3,10 @@
 ======== MENUBAR ========
 */
 
+.menu-bar {
+
+}
+
 .menu-item {
 -fx-padding: 2px 10em 2px 2em;
 }
@@ -11,14 +15,16 @@
 ======== TOOLBAR ========
 */
 
+.tool-bar {
+-fx-background-color: rgba(255, 255, 255, 0.9);
+-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.5) , 10, 0.0 , 0 , 3 );
+-fx-view-order: 5;
+}
+
 #image_button {
 -fx-label-padding: 0;
 -fx-graphic-text-gap: 0;
 -fx-padding: 3px;
-}
-
-image-view {
--fx-border-radius: 4px;
 }
 
 /*
@@ -52,6 +58,7 @@ image-view {
 
 #board_area {
 -fx-background-color: rgba(235, 230, 230, 1);
+-fx-view-order: 10;
 }
 
 #cas_block {
