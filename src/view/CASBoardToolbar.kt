@@ -11,6 +11,7 @@ import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.scene.layout.VBox
 import javafx.stage.Popup
+import java.awt.event.MouseEvent
 
 class CASToolBar(private val imageHeight:Double) : ToolBar() {
     private val instantTooltip = InstantTooltip()
@@ -31,7 +32,7 @@ class CASToolBar(private val imageHeight:Double) : ToolBar() {
         }
         handler?.let { button.onAction = it }
 
-        instantTooltip.addNode(button, title, desc)
+        instantTooltip.addButton(button, title, desc)
         items.add(button)
     }
 }
@@ -48,16 +49,24 @@ class InstantTooltip : Popup() {
         content.add(pane)
     }
 
-    fun addNode(node: Node, title: String, desc: String) {
-        node.hoverProperty().addListener { _: ObservableValue<out Boolean>, _: Boolean, new: Boolean ->
+    fun addButton(button: Button, title: String, desc: String) {
+        fun stateChange(new: Boolean) {
             if(new) {
                 titleLabel.text = title
                 descLabel.text = desc
-                val bounds = node.localToScreen(node.boundsInLocal)
-                show(node, bounds.minX, bounds.maxY)
-                currentNode = node
-            } else if(currentNode == node)
+                val bounds = button.localToScreen(button.boundsInLocal)
+                show(button, bounds.minX, bounds.maxY)
+                currentNode = button
+            } else if(currentNode == button)
                 hide()
+        }
+
+        button.hoverProperty().addListener { _: ObservableValue<out Boolean>, _: Boolean, new: Boolean ->
+            stateChange(new)
+        }
+        button.onTouchStationary = EventHandler{ stateChange(true) }
+        button.armedProperty().addListener { _: ObservableValue<out Boolean>, _: Boolean, _: Boolean ->
+            stateChange(false)
         }
     }
 }
