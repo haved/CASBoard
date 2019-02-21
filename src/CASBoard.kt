@@ -1,5 +1,7 @@
 package casboard
 
+import casboard.controller.CASBoardController
+import casboard.model.CASBoardModel
 import casboard.view.CASBoardView
 import javafx.application.Application
 import javafx.stage.Stage
@@ -8,8 +10,11 @@ const val CASBOARD_NAME = "CASBoard"
 
 class CASApp : Application() {
     override fun start(primaryStage: Stage) {
+        val model = CASBoardModel()
         val view = CASBoardView(primaryStage)
-        view.spawnCASBlock()
+        val controller = CASBoardController(model, view)
+        view.controller = controller
+        primaryStage.show()
     }
 }
 

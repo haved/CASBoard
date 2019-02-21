@@ -12,7 +12,8 @@ import javafx.scene.image.ImageView
 import javafx.scene.layout.VBox
 import javafx.stage.Popup
 
-class CASToolBar(private val imageHeight:Double) : ToolBar() {
+
+class ToolBarView(private val parent: CASBoardView) : ToolBar() {
     private val instantTooltip = InstantTooltip()
 
     init {
@@ -20,12 +21,12 @@ class CASToolBar(private val imageHeight:Double) : ToolBar() {
         addButton(null, null, "Add wire", "Adds a wire")
     }
 
-    private fun addButton(icon:Image?, handler:EventHandler<ActionEvent>?, title:String, desc:String) {
+    private fun addButton(icon:Image?, handler: EventHandler<ActionEvent>?, title:String, desc:String) {
         val button = Button()
         button.id = "image_button"
         icon?.let {
             val iv =  ImageView(it)
-            iv.fitHeight = imageHeight
+            iv.fitHeight = 32.0 //TODO: Magic number, should be css
             iv.isPreserveRatio = true
             button.graphic = iv
         }
