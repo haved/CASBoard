@@ -19,7 +19,7 @@ class CASApp : Application() {
 }
 
 fun main(args: Array<String>) {
-    println("Starting CASBoard")
+    info("Starting CASBoard")
     Application.launch(CASApp::class.java, *args)
-    println("CASBoard stopped")
+    info("CASBoard stopped")
 }
