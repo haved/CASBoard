@@ -11,9 +11,7 @@ const val CASBOARD_NAME = "CASBoard"
 class CASApp : Application() {
     override fun start(primaryStage: Stage) {
         val model = CASBoardModel()
-        val view = CASBoardView(primaryStage)
-        val controller = CASBoardController(model, view)
-        view.controller = controller
+        val controller = CASBoardController(model) { controller -> CASBoardView(controller, primaryStage)}
         primaryStage.show()
     }
 }

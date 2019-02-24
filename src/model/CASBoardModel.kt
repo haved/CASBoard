@@ -1,5 +1,7 @@
 package casboard.model
 
-class CASBoardModel {
+import javafx.geometry.Point2D
 
+class CASBoardModel {
+    val pan =
 }

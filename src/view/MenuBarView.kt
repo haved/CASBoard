@@ -6,7 +6,6 @@ import javafx.scene.control.MenuItem
 import javafx.scene.control.SeparatorMenuItem
 
 class MenuBarView(private val parent: CASBoardView) : MenuBar() {
-
     init {
         val file = Menu("File")
         val new = MenuItem("New")
