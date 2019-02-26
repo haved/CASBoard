@@ -1,7 +1,9 @@
 package casboard.view
 
 import casboard.controller.CASBoardController
+import casboard.model.CASBlock
 import casboard.model.CASBoardModel
+import casboard.model.WatchedList
 import javafx.scene.Scene
 import javafx.scene.image.Image
 import javafx.scene.layout.Priority
@@ -26,6 +28,17 @@ class CASBoardView(val controller: CASBoardController, primaryStage: Stage) {
     }
 
     fun onModelSet(old: CASBoardModel?, new: CASBoardModel) {
+        old?.blocks?.removeListener(blockListChangeListener, retroactive=true)
+        new.blocks.addListener(blockListChangeListener, retroactive=true)
+    }
 
+    val blockListChangeListener = object : WatchedList.Listener<CASBlock> {
+        override fun onAdd(added: CASBlock) {
+            board.addBlockView(added)
+        }
+
+        override fun onRemove(removed: CASBlock) {
+            board.removeBlockView(removed)
+        }
     }
 }

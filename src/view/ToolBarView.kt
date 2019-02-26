@@ -17,7 +17,9 @@ class ToolBarView(private val parent: CASBoardView) : ToolBar() {
     private val instantTooltip = InstantTooltip()
 
     init {
-        addButton(Image("add_cas.png"), null, "Add CAS block", "Adds an empty block for CAS")
+        addButton(Image("add_cas.png"), EventHandler {parent.controller.addCASBlock()},
+            "Add CAS block", "Adds an empty block for CAS")
+
         addButton(null, null, "Add wire", "Adds a wire")
     }
 

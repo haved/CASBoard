@@ -1,5 +1,6 @@
 package casboard.controller
 
+import casboard.model.CASBlock
 import casboard.model.CASBoardModel
 import casboard.view.CASBoardView
 
@@ -8,8 +9,9 @@ class CASBoardController(m: CASBoardModel, private val close_fun:(code:Int)->Uni
     val view : CASBoardView
     var model = m
     set(value) {
-        view.onModelSet(field, value)
+        val old = field
         field = value
+        view.onModelSet(old, value)
     }
 
     init {
@@ -18,7 +20,7 @@ class CASBoardController(m: CASBoardModel, private val close_fun:(code:Int)->Uni
     }
 
     fun addCASBlock() {
-        //model.blocks.add(CASBlock())
+        model.blocks.add(CASBlock())
     }
 
     fun exitWanted() {
