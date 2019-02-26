@@ -1,5 +1,7 @@
 package casboard.view
 
+import javafx.event.ActionEvent
+import javafx.event.EventHandler
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
 import javafx.scene.control.MenuItem
@@ -13,6 +15,7 @@ class MenuBarView(private val parent: CASBoardView) : MenuBar() {
         val save = MenuItem("Save")
         val saveAs = MenuItem("SaveAs")
         val exit = MenuItem("Exit")
+        exit.onAction = EventHandler<ActionEvent> {parent.controller.exitWanted()}
         file.items.addAll(new, open, save, saveAs, SeparatorMenuItem(), exit)
 
         val edit = Menu("Edit")

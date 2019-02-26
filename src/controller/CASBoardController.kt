@@ -3,16 +3,26 @@ package casboard.controller
 import casboard.model.CASBoardModel
 import casboard.view.CASBoardView
 
-class CASBoardController(private var model: CASBoardModel, view_gen:(c:CASBoardController)->CASBoardView) {
-    val view = view_gen(this)
+class CASBoardController(m: CASBoardModel, private val close_fun:(code:Int)->Unit, view_gen:(c:CASBoardController)->CASBoardView) {
+    @Suppress("JoinDeclarationAndAssignment") //We pass this to the view, so postpone as much as possible
+    val view : CASBoardView
+    var model = m
+    set(value) {
+        view.onModelSet(field, value)
+        field = value
+    }
 
     init {
+        view = view_gen(this)
         view.onModelSet(null, model)
     }
 
-    fun setModel(model: CASBoardModel) {
-        view.onModelSet(this.model, model)
-        this.model = model
+    fun addCASBlock() {
+        //model.blocks.add(CASBlock())
     }
-    fun getModel() = model
+
+    fun exitWanted() {
+        //TODO: Test for unsaved changes
+        close_fun(0)
+    }
 }
