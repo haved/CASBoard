@@ -1,5 +1,6 @@
 package casboard.view
 
+import casboard.logError
 import casboard.model.CASBlock
 import javafx.scene.Group
 import javafx.scene.input.MouseEvent
@@ -21,7 +22,7 @@ class BoardView(private val parent: CASBoardView) : Pane() {
 
     fun addBlockView(model: CASBlock) {
         if(blockViews.contains(model)) {
-            error("CASBlock already has a BlockView, but was added again. Something is wrong")
+            logError("CASBlock already has a BlockView, but was added again. Something is wrong")
             return
         }
         val view = BlockView(model, this)
@@ -31,7 +32,7 @@ class BoardView(private val parent: CASBoardView) : Pane() {
 
     fun removeBlockView(model: CASBlock) {
         if(!blockViews.contains(model)) {
-            error("Tried to remove a CASBlock from the BoardView that didn't exist. Something is wrong")
+            logError("Tried to remove a CASBlock from the BoardView that didn't exist. Something is wrong")
             return
         }
 

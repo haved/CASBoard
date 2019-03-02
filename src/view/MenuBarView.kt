@@ -8,8 +8,10 @@ import javafx.scene.control.MenuItem
 import javafx.scene.control.SeparatorMenuItem
 
 class MenuBarView(private val parent: CASBoardView) : MenuBar() {
+    fun String.load(vararg args : Any) = parent.strings.getString(this, *args)
+
     init {
-        val file = Menu("File")
+        val file = Menu("menubar.menu.file".load())
         val new = MenuItem("New")
         val open = MenuItem("Open")
         val save = MenuItem("Save")
