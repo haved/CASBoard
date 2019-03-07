@@ -7,7 +7,7 @@ class Strings(private val fileName:String) {
     private val map = HashMap<String, String>()
 
     init {
-
+        val reader = Resources.getBufferedReader(fileName)
     }
 
     fun getString(name: String, vararg args: Any):String {
